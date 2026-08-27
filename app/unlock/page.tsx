@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { unlockSite } from "@/app/unlock/actions";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { site } from "@/lib/site";
 import {
   SITE_LOCK_COOKIE,
@@ -35,6 +36,9 @@ export default async function UnlockPage({
       id="main"
       className="mx-auto flex w-full max-w-md flex-1 flex-col justify-center px-6 py-24"
     >
+      <div className="fixed right-6 top-6 z-20">
+        <ThemeToggle />
+      </div>
       <p className="font-mono text-xs tracking-[0.28em] text-accent uppercase">
         {site.shortName}
       </p>

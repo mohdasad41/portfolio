@@ -4,7 +4,7 @@ import { immigrateos } from "@/lib/site";
 export function ImmigrateOS() {
   return (
     <article className="mt-10">
-      <div className="flex items-center gap-5 rounded-2xl border border-line bg-[#152033] px-6 py-8 sm:px-8">
+      <div className="flex items-center gap-5 rounded-2xl border border-line bg-immigrateos-well px-6 py-8 sm:px-8">
         <Image
           src={immigrateos.logo.src}
           alt={immigrateos.logo.alt}
@@ -14,10 +14,10 @@ export function ImmigrateOS() {
           sizes="80px"
         />
         <div>
-          <p className="font-mono text-xs tracking-[0.22em] text-immigrateos uppercase">
+          <p className="font-mono text-xs tracking-[0.22em] text-immigrateos-bright uppercase">
             Vertical SaaS
           </p>
-          <p className="mt-1 text-sm text-muted">
+          <p className="mt-1 text-sm text-well-muted">
             Immigration practice OS · live product
           </p>
         </div>

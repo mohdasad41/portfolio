@@ -36,7 +36,7 @@ export function ProjectCard({
         href={href}
         className="group grid gap-6 rounded-2xl border border-line p-6 transition-colors hover:border-foreground/40 sm:grid-cols-[auto_minmax(0,1fr)] sm:p-8"
       >
-        <div className="relative h-16 w-16 overflow-hidden rounded-2xl border border-line bg-black">
+        <div className="relative h-16 w-16 overflow-hidden rounded-2xl border border-line bg-logo-well">
           <Image
             src={image.src}
             alt=""

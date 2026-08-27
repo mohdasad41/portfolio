@@ -4,7 +4,7 @@ import { patientq } from "@/lib/site";
 export function PatientQ() {
   return (
     <article className="mt-10">
-      <div className="relative h-40 overflow-hidden rounded-2xl border border-line bg-black sm:h-48">
+      <div className="relative h-40 overflow-hidden rounded-2xl border border-line bg-logo-well sm:h-48">
         <Image
           src={patientq.logo.src}
           alt={patientq.logo.alt}

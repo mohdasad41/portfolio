@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
+@custom-variant light (&:where(.light *));
+
 :root {
+  color-scheme: dark;
   --background: #0c0c0b;
   --foreground: #efeae1;
   --muted: #9a9488;
@@ -8,6 +11,58 @@
   --accent: #d4a574;
   --patientq: #2ec4c4;
   --immigrateos: #7dba90;
+  --logo-well: #0c0c0b;
+  --immigrateos-well: #152033;
+  --well-muted: #9a9488;
+  --patientq-bright: #2ec4c4;
+  --immigrateos-bright: #7dba90;
+}
+
+html.light {
+  color-scheme: light;
+  --background: #f3eee6;
+  --foreground: #171512;
+  --muted: #6a645b;
+  --line: #ddd4c6;
+  --accent: #9b5f22;
+  --patientq: #0c7474;
+  --immigrateos: #277548;
+  --logo-well: #0c0c0b;
+  --immigrateos-well: #152033;
+  --well-muted: #9a9488;
+  --patientq-bright: #2ec4c4;
+  --immigrateos-bright: #7dba90;
+}
+
+html.dark {
+  color-scheme: dark;
+  --background: #0c0c0b;
+  --foreground: #efeae1;
+  --muted: #9a9488;
+  --line: #26251f;
+  --accent: #d4a574;
+  --patientq: #2ec4c4;
+  --immigrateos: #7dba90;
+  --logo-well: #0c0c0b;
+  --immigrateos-well: #152033;
+  --well-muted: #9a9488;
+  --patientq-bright: #2ec4c4;
+  --immigrateos-bright: #7dba90;
+}
+
+@media (prefers-color-scheme: light) {
+  html:not(.dark) {
+    color-scheme: light;
+    --background: #f3eee6;
+    --foreground: #171512;
+    --muted: #6a645b;
+    --line: #ddd4c6;
+    --accent: #9b5f22;
+    --patientq: #0c7474;
+    --immigrateos: #277548;
+    --logo-well: #0c0c0b;
+    --immigrateos-well: #152033;
+  }
 }
 
 @theme inline {
@@ -18,6 +73,11 @@
   --color-accent: var(--accent);
   --color-patientq: var(--patientq);
   --color-immigrateos: var(--immigrateos);
+  --color-logo-well: var(--logo-well);
+  --color-immigrateos-well: var(--immigrateos-well);
+  --color-well-muted: var(--well-muted);
+  --color-patientq-bright: var(--patientq-bright);
+  --color-immigrateos-bright: var(--immigrateos-bright);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-serif: var(--font-instrument-serif);
@@ -32,6 +92,15 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
+  }
 }
 
 ::selection {

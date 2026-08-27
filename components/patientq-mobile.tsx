@@ -5,7 +5,7 @@ import { patientqMobile } from "@/lib/site";
 export function PatientQMobile() {
   return (
     <article className="mt-10">
-      <div className="flex items-center gap-5 rounded-2xl border border-line bg-black px-6 py-8 sm:px-8">
+      <div className="flex items-center gap-5 rounded-2xl border border-line bg-logo-well px-6 py-8 sm:px-8">
         <Image
           src={patientqMobile.logo.src}
           alt={patientqMobile.logo.alt}
@@ -15,10 +15,10 @@ export function PatientQMobile() {
           sizes="80px"
         />
         <div>
-          <p className="font-mono text-xs tracking-[0.22em] text-patientq uppercase">
+          <p className="font-mono text-xs tracking-[0.22em] text-patientq-bright uppercase">
             Mobile app
           </p>
-          <p className="mt-1 text-sm text-muted">{patientqMobile.kicker}</p>
+          <p className="mt-1 text-sm text-well-muted">{patientqMobile.kicker}</p>
         </div>
       </div>
 
