@@ -6,6 +6,8 @@
   --muted: #9a9488;
   --line: #26251f;
   --accent: #d4a574;
+  --patientq: #2ec4c4;
+  --immigrateos: #7dba90;
 }
 
 @theme inline {
@@ -14,6 +16,8 @@
   --color-muted: var(--muted);
   --color-line: var(--line);
   --color-accent: var(--accent);
+  --color-patientq: var(--patientq);
+  --color-immigrateos: var(--immigrateos);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-serif: var(--font-instrument-serif);

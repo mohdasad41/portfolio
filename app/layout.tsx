@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { site } from "@/lib/site";
+import { SITE_LOCK_ENABLED } from "@/lib/site-lock";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
   },
+  robots: SITE_LOCK_ENABLED ? { index: false, follow: false } : undefined,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

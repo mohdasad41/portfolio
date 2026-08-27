@@ -5,7 +5,7 @@ export function Header() {
     <header className="sticky top-0 z-20 border-b border-line/80 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
         <a
-          href="#top"
+          href="/"
           className="font-mono text-sm tracking-widest text-foreground uppercase"
         >
           {site.shortName}
