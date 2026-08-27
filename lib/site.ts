@@ -4,10 +4,10 @@ export const site = {
   role: "Software Engineer",
   location: "Building software with care",
   summary:
-    "I founded ImmigrateOS, a practice OS for immigration firms, and co-lead PatientQ, an AI CRM for medspas and clinics. I design and build software that is clear, reliable, and a little obsessive about the details.",
+    "I founded ImmigrateOS, co-lead PatientQ, and built PatientQ Mobile — the Plaud companion for clinics. I design and build software that is clear, reliable, and a little obsessive about the details.",
   about: [
-    "I'm Asadullah Mohammed, a software engineer. I founded ImmigrateOS — a vertical SaaS operating system for Canadian immigration consultancies — and I co-lead PatientQ, an AI CRM and practice OS that takes a clinic lead from ad to booked visit, chart, and payment.",
-    "I like work that is easy to reason about, pleasant to use, and built to last: TypeScript across the stack, NestJS APIs, and product direction that holds up in production.",
+    "I'm Asadullah Mohammed, a software engineer. I founded ImmigrateOS — a vertical SaaS operating system for Canadian immigration consultancies — and I co-lead PatientQ, an AI CRM and practice OS that takes a clinic lead from ad to booked visit, chart, and payment. I designed and built PatientQ Mobile, the Plaud hardware companion, as lead developer.",
+    "I like work that is easy to reason about, pleasant to use, and built to last: TypeScript across web and native, NestJS APIs, and product direction that holds up in production.",
   ],
   github: "https://github.com/asadullahmohammed",
   email: "",
@@ -20,6 +20,8 @@ export const site = {
     "TypeScript",
     "Next.js",
     "React",
+    "React Native",
+    "Expo",
     "NestJS",
     "GraphQL",
     "PostgreSQL",
@@ -166,6 +168,158 @@ export const patientq = {
     "Designed multi-tenant access: location vs portfolio vs internal staff, with resource-level permissions.",
     "Production path: Vercel for the apps, GCP Cloud Run for the API and worker, Postgres and Redis underneath.",
   ],
+} as const;
+
+export const patientqMobile = {
+  name: "PatientQ Mobile",
+  roleLine: "Lead Mobile Developer",
+  href: "/patientq-mobile",
+  url: "https://patientq.ai",
+  urlLabel: "patientq.ai",
+  kicker: "Plaud consultation companion · iOS & Android",
+  logo: {
+    src: "/projects/patientq-logo.png",
+    alt: "PatientQ Inc. logo",
+    width: 800,
+    height: 800,
+  },
+  oneLiner:
+    "PatientQ Mobile is a clinician companion app that pairs with a Plaud hardware recorder, syncs consultation audio from the device, and turns visits into searchable, speaker-labeled transcripts for the clinic.",
+  card: "React Native / Expo companion for Plaud NotePro and NotePin. Clinicians record visits on the hardware; the app pairs over Bluetooth, syncs audio (BLE or Wi-Fi), uploads for AI transcription with speaker labels, and lets staff review, search, and assign recordings to patients.",
+  problem:
+    "Clinics needed a consultation recording companion — not a booking or payments app. The visit is captured on a Plaud NotePro or NotePin, not the phone mic. The phone has to find the recorder, get the file, get it transcribed with speaker labels, and let staff review it, including when the network drops mid-sync.",
+  outcome:
+    "PatientQ Mobile pairs over Bluetooth, syncs audio over BLE or faster Wi-Fi, uploads it for AI transcription, and lets staff search transcripts, rename speakers, and assign the recording to a patient. The same recording later feeds SOAP notes / Smart Charting in the PatientQ CRM — the system the phone talks to, not work claimed as this app.",
+  story:
+    "The clinician records on the Plaud. The phone finds it over Bluetooth, downloads the file, uploads it for transcription, and a status chip walks the visit from On device to Ready. Staff search the transcript, rename speakers, and assign it to a patient.",
+  audience:
+    "For clinicians and clinic staff. Accounts are provisioned by an admin (sign-in only, Auth0). Recordings are scoped to a clinic location.",
+  related: {
+    label: "PatientQ CRM case study",
+    href: "/patientq",
+  },
+  surfaces: [
+    {
+      name: "Hardware",
+      tagline: "Plaud NotePro / NotePin",
+      body: "The visit is recorded on the device. The phone discovers sessions; it does not capture the consult on its mic.",
+    },
+    {
+      name: "Companion app",
+      tagline: "What I built",
+      body: "Pairing, sync pipeline, transcription UX, notifications, and native iOS/Android release.",
+    },
+    {
+      name: "CRM",
+      tagline: "System the phone talks to",
+      body: "Metadata, contacts, and transcription status over GraphQL. Later: SOAP notes / Smart Charting — not this app.",
+    },
+  ],
+  backend: {
+    name: "PatientQ backend",
+    tagline: "GraphQL API",
+    body: "Clinic identity, recording metadata, transcription jobs, and contacts. Audio does not go through these servers.",
+  },
+  pipeline: [
+    "On device",
+    "Downloading",
+    "Uploading",
+    "Transcribing",
+    "Ready / Failed",
+  ],
+  dives: [
+    {
+      title: "Hardware to cloud",
+      body: "BLE or Wi-Fi export, queued download, multipart S3 upload, STT submit, then poll until Ready. A second path — server webhook and push — still lands the transcript if the app is backgrounded.",
+    },
+    {
+      title: "Native Plaud bridge",
+      body: "A custom native SDK bridge, not Expo Go: scan, bind, handshake, file list, transfer progress, firmware, and storage. Physical NotePro and NotePin only.",
+    },
+    {
+      title: "Offline, and audio off our servers",
+      body: "A persisted AsyncStorage queue pauses when offline and retries with backoff. Audio never transits PatientQ servers — the phone uploads to Plaud S3 with presigned URLs. The app and backend keep metadata and the transcript. One recording per device session and location; delete does not invite a duplicate upload (re-transcribe to revive).",
+    },
+  ],
+  features: [
+    {
+      title: "Pairing & devices",
+      items: [
+        "Auth0 sign-in (clinic accounts only; admin-provisioned)",
+        "First-run onboarding: permissions → BLE scan → pair → success",
+        "Pair Plaud NotePro / NotePin; pair more devices later",
+        "Device dashboard: connection, battery, storage, firmware, tags",
+        "Location switcher, dark/light theme, firmware updates, unpair",
+      ],
+    },
+    {
+      title: "Sync",
+      items: [
+        "Record on hardware; phone discovers sessions and syncs",
+        "Auto sync and manual sync; Wi-Fi fast transfer for long visits",
+        "Offline-aware queue: pause when offline, retry with backoff",
+        "Status chips: On device → Downloading → Uploading → Transcribing → Ready / Failed",
+      ],
+    },
+    {
+      title: "Transcripts",
+      items: [
+        "Speakers, search, rename speakers, copy/share, in-app audio playback",
+        "Assign recording to a patient (contact) from the phone",
+        "Re-transcribe failed or timed-out jobs",
+      ],
+    },
+    {
+      title: "Alerts",
+      items: [
+        "Push and in-app alerts when a transcript is ready or failed",
+        "Tap opens the recording (patientq://recording/:id)",
+      ],
+    },
+  ],
+  architecture: [
+    {
+      title: "App",
+      body: "React Native, Expo SDK 55, TypeScript. React Navigation (tabs + stacks). Auth0 native.",
+    },
+    {
+      title: "Hardware",
+      body: "Native Plaud BLE / Wi-Fi SDK via a custom bridge. Physical device only.",
+    },
+    {
+      title: "Transfer",
+      body: "BLE + local-network Wi-Fi, then multipart upload to Plaud S3 (presigned URLs).",
+    },
+    {
+      title: "Release",
+      body: "EAS native iOS/Android (com.patientq). Expo push, local alerts, deep links.",
+    },
+  ],
+  stack: [
+    "React Native",
+    "Expo",
+    "TypeScript",
+    "BLE / IoT",
+    "Auth0",
+    "GraphQL",
+    "Offline queues",
+    "Push notifications",
+    "Healthcare / HIPAA-aware mobile",
+  ],
+  roleIntro:
+    "Lead Mobile Developer — PatientQ (Plaud companion). Owned the iOS/Android app from architecture through App Store–ready native builds.",
+  roleBullets: [
+    "Led development of PatientQ’s iOS/Android companion app (Expo/React Native) for Plaud hardware: BLE pairing, Wi-Fi fast transfer, and an offline-resilient sync queue.",
+    "Implemented the end-to-end recording flow: device export → multipart cloud upload → AI transcription with diarization → in-app transcript player, search, and speaker labeling.",
+    "Wrote a native Plaud SDK bridge (not Expo Go): scan, bind, handshake, file list, transfer progress, firmware, storage.",
+    "Designed offline-first sync (AsyncStorage queue, exponential backoff, “Waiting for network”).",
+    "Kept PHI off the PatientQ API path for audio: phone uploads directly to Plaud S3; app and backend store metadata and transcript. No secrets on device — the Plaud token is minted by the backend.",
+    "Handled clinic identity: one recording per device session and location; blocked accidental re-upload after delete (re-transcribe to revive).",
+    "Dual completion path: client polling + server webhook/push so transcripts still land if the app is backgrounded.",
+    "Shipped production native builds with Auth0, GraphQL, push notifications, and deep links; Bluetooth, Location, and Local Network permissions, Wi-Fi entitlements, TestFlight/EAS.",
+  ],
+  scope:
+    "I designed and built the PatientQ mobile app (Plaud integration) as lead developer — not the CRM, Smart Charting, or backend as a whole. Those are the system this phone talks to.",
 } as const;
 
 export const immigrateos = {
@@ -326,6 +480,15 @@ export const projects = [
     blurb: patientq.card,
     stack: patientq.stack.slice(0, 6),
     image: patientq.logo,
+    accent: "patientq" as const,
+  },
+  {
+    name: patientqMobile.name,
+    role: patientqMobile.roleLine,
+    href: patientqMobile.href,
+    blurb: patientqMobile.card,
+    stack: patientqMobile.stack.slice(0, 6),
+    image: patientqMobile.logo,
     accent: "patientq" as const,
   },
 ];
