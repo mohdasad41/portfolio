@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { site } from "@/lib/site";
-import { SITE_LOCK_ENABLED } from "@/lib/site-lock";
 import { THEME_COLORS, themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
@@ -35,7 +34,6 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
   },
-  robots: SITE_LOCK_ENABLED ? { index: false, follow: false } : undefined,
 };
 
 export const viewport: Viewport = {
