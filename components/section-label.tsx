@@ -2,7 +2,7 @@ export function SectionLabel({
   id,
   number,
   title,
-  total = "03",
+  total = "06",
 }: {
   id: string;
   number: string;

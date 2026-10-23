@@ -2,44 +2,245 @@ export const site = {
   name: "Asadullah Mohammed",
   shortName: "AM",
   role: "Software Engineer",
-  location: "Building software with care",
+  specialty: "Full-Stack & Mobile Development",
+  location: "Toronto, ON",
   summary:
-    "I founded ImmigrateOS, co-lead PatientQ, and built PatientQ Mobile — the Plaud companion for clinics. I design and build software that is clear, reliable, and a little obsessive about the details.",
-  about: [
-    "I'm Asadullah Mohammed, a software engineer. I founded ImmigrateOS — a vertical SaaS operating system for Canadian immigration consultancies — and I co-lead PatientQ, an AI CRM and practice OS that takes a clinic lead from ad to booked visit, chart, and payment. I designed and built PatientQ Mobile, the Plaud hardware companion, as lead developer.",
-    "I like work that is easy to reason about, pleasant to use, and built to last: TypeScript across web and native, NestJS APIs, and product direction that holds up in production.",
-  ],
+    "Software Engineer with 3+ years of experience building full-stack web and cross-platform mobile applications, including a healthcare platform used by 400+ clinics. I own features end to end, from architecture and implementation to deployment, across healthcare, SaaS and consumer products.",
   github: "https://github.com/asadullahmohammed",
-  email: "",
+  email: "asadasshu@gmail.com",
+  url: "https://asadullah.ca",
   nav: [
+    { label: "Experience", href: "/#experience" },
     { label: "Work", href: "/#work" },
-    { label: "About", href: "/#about" },
     { label: "Contact", href: "/#contact" },
   ],
   skills: [
-    "TypeScript",
-    "Next.js",
-    "React",
-    "React Native",
-    "Expo",
-    "NestJS",
-    "GraphQL",
-    "PostgreSQL",
-    "Prisma",
-    "Redis",
-    "WorkOS",
-    "Auth0",
-    "GCP",
-    "Vercel",
+    {
+      label: "Languages",
+      items: ["TypeScript", "JavaScript", "Python", "SQL"],
+    },
+    {
+      label: "Frontend",
+      items: ["React", "Next.js", "HTML5", "CSS3", "Tailwind CSS", "TanStack Query"],
+    },
+    {
+      label: "Backend",
+      items: [
+        "Node.js",
+        "NestJS",
+        "GraphQL (Apollo)",
+        "REST APIs",
+        "WebSockets",
+        "Authentication & RBAC",
+      ],
+    },
+    {
+      label: "Databases",
+      items: ["PostgreSQL", "Supabase", "Firebase", "Redis"],
+    },
+    {
+      label: "Mobile",
+      items: ["React Native", "Expo", "EAS Build", "Android Studio"],
+    },
+    {
+      label: "Cloud & DevOps",
+      items: [
+        "Google Cloud Platform",
+        "Vercel",
+        "Docker",
+        "GitHub Actions (CI/CD)",
+      ],
+    },
+    {
+      label: "Integrations",
+      items: [
+        "Twilio",
+        "Stripe",
+        "Square",
+        "Auth0",
+        "WorkOS",
+        "OpenAI API",
+        "Retell AI",
+        "Google & Apple Calendar",
+        "Meta Ads",
+        "Webhooks",
+      ],
+    },
   ],
 } as const;
 
+export const experience: readonly {
+  role: string;
+  company: string;
+  period: string;
+  location: string;
+  groups: readonly { title?: string; url?: string; bullets: readonly string[] }[];
+}[] = [
+  {
+    role: "Software Engineer",
+    company: "Medaquire Inc.",
+    period: "Oct 2025 – Present",
+    location: "Toronto, ON",
+    groups: [
+      {
+        title: "PatientQ — Multi-Location Healthcare Platform",
+        url: "https://patientq.io",
+        bullets: [
+          "Build and maintain PatientQ’s NestJS GraphQL API (PostgreSQL, Auth0, background jobs), used by 400+ clinics and powering Next.js CRM, sales and EMR apps for patients, appointments, staff, services, locations and permissions, with Jest and Supertest coverage on the API.",
+          "Develop clinic communication on Twilio SMS, email and voice with AI conversation agents, including Retell AI voice agents, and automated appointment reminders, streaming CRM conversations live over authenticated GraphQL WebSocket subscriptions; also integrate Square payments, Meta Ads, Google/Apple Calendar, Zenoti and GoHighLevel.",
+          "Engineer clinical documentation across the CRM and a React Native (Expo) companion app, where Plaud voice recorders upload consultations through the GraphQL API into searchable transcripts, AI-generated SOAP notes and consultation insights on the patient record.",
+        ],
+      },
+      {
+        title: "TenLease — Commercial Leasing Platform for Retail Centers",
+        url: "https://tenlease.ai",
+        bullets: [
+          "Lead engineering for TenLease, a commercial leasing platform for retail centers, covering properties, suites, rent rolls, contacts and vacancy campaigns for leasing teams.",
+          "Build AI voice and SMS outreach that records call outcomes, proposes site-visit times for human confirmation and creates follow-up tasks and calendar events.",
+          "Design the PostgreSQL schema and NestJS APIs behind a Next.js app, with organization-scoped access control and background jobs for lease extraction, renewal reminders and Google Calendar sync.",
+        ],
+      },
+    ],
+  },
+  {
+    role: "Founder & Software Engineer",
+    company: "ImmigrateOS",
+    period: "Jun 2026 – Present",
+    location: "Toronto, ON",
+    groups: [
+      {
+        url: "https://immigrateos.com",
+        bullets: [
+          "Build ImmigrateOS, a multi-tenant SaaS platform that takes Canadian immigration consulting firms from client intake and eligibility through case tracking to complete document submission packages.",
+          "Architect the platform on Next.js and NestJS with PostgreSQL on Google Cloud SQL, WorkOS authentication and Cloud Storage, isolating each firm’s cases, documents and client portal with separate staff and applicant sign-in.",
+          "Develop case-tracking workflows, document checklists and automated deadline reminders that replace the spreadsheets and email threads firms use to manage cases.",
+        ],
+      },
+    ],
+  },
+  {
+    role: "Freelance Software Engineer",
+    company: "Self-Employed",
+    period: "Sep 2023 – Sep 2025",
+    location: "Toronto, ON",
+    groups: [
+      {
+        bullets: [
+          "Delivered custom web and mobile applications for small businesses and startups, owning requirements, architecture, deployment and ongoing support for each engagement.",
+          "Built React/Next.js web apps and React Native mobile apps integrating REST and GraphQL APIs, Firebase and Supabase.",
+          "Implemented Stripe payment flows, e-commerce storefronts and admin dashboards that let non-technical clients manage their own content and orders.",
+        ],
+      },
+    ],
+  },
+  {
+    role: "Project Coordinator Intern",
+    company: "eFone.ca",
+    period: "Jan 2023 – May 2023",
+    location: "Toronto, ON",
+    groups: [
+      {
+        bullets: [
+          "Gathered requirements with the tech lead and built the project scope, task breakdown and milestone schedule in MS Project, keeping delivery dates visible to the team.",
+          "Tracked task progress and dependencies, flagged schedule risks early and sent weekly status updates to 6 stakeholders.",
+        ],
+      },
+    ],
+  },
+  {
+    role: "Web Developer Intern",
+    company: "Shayan Aromatics",
+    period: "Sep 2021 – Dec 2021",
+    location: "Toronto, ON",
+    groups: [
+      {
+        bullets: [
+          "Interviewed customers to build user personas, then designed the site’s page layouts and shopping flow as high-fidelity Figma prototypes for owner review.",
+          "Built the website and set up the Shopify store, including product catalog, collections, checkout and payments, and trained the owners to manage products and orders themselves.",
+        ],
+      },
+    ],
+  },
+];
+
+export const sideProjects: readonly {
+  name: string;
+  description: string;
+  url?: string;
+  urlLabel?: string;
+  platform: string;
+  stack: readonly string[];
+  bullets: readonly string[];
+}[] = [
+  {
+    name: "Tapelog",
+    description: "AI Meeting Recorder & Voice Journal",
+    url: "https://tapelog.vercel.app",
+    urlLabel: "tapelog.vercel.app",
+    platform: "iOS & Android",
+    stack: [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Supabase",
+      "AI/LLM & Speech-to-Text APIs",
+    ],
+    bullets: [
+      "Designed and launched a cross-platform app with a server-side pipeline that turns recordings into timestamped, speaker-separated transcripts, then extracts summaries, action items, decisions and key moments in one AI pass.",
+      "Built a retrieval-grounded “Ask your recordings” chat with persistent history, live captions with real-time translation and speaker identification that reuses voice profiles across recordings.",
+      "Secured user data with Google, Apple and email sign-in, row-level security and server-side API key handling; added tiered subscriptions and export to 8 formats, including PDF, Markdown, JSON, Notion and Obsidian.",
+    ],
+  },
+  {
+    name: "RIS Convention App",
+    description: "Official app for the Reviving the Islamic Spirit convention",
+    platform: "iOS & Android",
+    stack: ["React Native", "Expo", "TypeScript"],
+    bullets: [
+      "Built the official mobile app for the RIS (Reviving the Islamic Spirit) convention, with schedules, speaker profiles, personalized agendas and push notifications for live session updates.",
+      "Added offline access for use in a crowded venue and a backend content API that lets organizers update sessions without shipping a new release.",
+    ],
+  },
+  {
+    name: "Real-Time Collaborative Task Board",
+    description: "Multi-user boards with live sync",
+    platform: "Web",
+    stack: ["Next.js", "Node.js", "WebSockets", "PostgreSQL", "Redis"],
+    bullets: [
+      "Built multi-user boards with live updates, presence indicators and drag-and-drop ordering synced over WebSockets.",
+      "Used Redis pub/sub to broadcast changes across server instances, with optimistic UI updates and conflict handling to keep clients consistent.",
+    ],
+  },
+];
+
+export const education: readonly {
+  school: string;
+  location: string;
+  credential: string;
+  detail?: string;
+  date: string;
+}[] = [
+  {
+    school: "Davenport University",
+    location: "Grand Rapids, MI",
+    credential: "Bachelor of Science in Technology Project Management, Honors",
+    detail: "Cumulative GPA 3.9/4.0 · President’s List, 2022 & 2023",
+    date: "Aug 2023",
+  },
+  {
+    school: "Seneca College of Applied Arts and Technology",
+    location: "Toronto, ON",
+    credential: "Advanced Diploma, Computer Engineering Technology",
+    date: "Aug 2021",
+  },
+];
+
 export const patientq = {
   name: "PatientQ",
-  roleLine: "Co-lead, Full-stack",
+  roleLine: "Software Engineer, Medaquire Inc.",
   href: "/patientq",
-  url: "https://patientq.ai",
-  urlLabel: "patientq.ai",
+  url: "https://patientq.io",
+  urlLabel: "patientq.io",
   logo: {
     src: "/projects/patientq-logo.png",
     alt: "PatientQ Inc. logo",
@@ -161,10 +362,11 @@ export const patientq = {
     "Vercel",
   ],
   roleBullets: [
-    "Co-led architecture and delivery of PatientQ, an AI CRM/EMR for multi-location medspa and clinic operations.",
-    "Shaped the product from waitlist and check-in into a lead-to-revenue platform: ads → contacts → AI outreach → appointments → charting → billing.",
-    "Co-owned the NestJS GraphQL backend: modular domains, BullMQ workers, Auth0, and integrations (Twilio, Retell, Meta, Stripe, calendars).",
-    "Co-built the Next.js CRM: unified inbox, visual workflow builder, conversation agents, SOAP charting from visit recordings, ads, and RBAC.",
+    "Build and maintain the NestJS GraphQL API (PostgreSQL, Auth0, background jobs) used by 400+ clinics, with Jest and Supertest coverage.",
+    "Develop clinic communication on Twilio SMS, email and voice with AI conversation agents, including Retell AI voice agents and automated appointment reminders.",
+    "Stream CRM conversations live over authenticated GraphQL WebSocket subscriptions.",
+    "Integrate Square payments, Meta Ads, Google/Apple Calendar, Zenoti and GoHighLevel.",
+    "Engineer clinical documentation: consultation recordings become searchable transcripts, AI-generated SOAP notes and consultation insights on the patient record.",
     "Designed multi-tenant access: location vs portfolio vs internal staff, with resource-level permissions.",
     "Production path: Vercel for the apps, GCP Cloud Run for the API and worker, Postgres and Redis underneath.",
   ],
@@ -172,10 +374,10 @@ export const patientq = {
 
 export const patientqMobile = {
   name: "PatientQ Mobile",
-  roleLine: "Lead Mobile Developer",
+  roleLine: "Software Engineer, Medaquire Inc.",
   href: "/patientq-mobile",
-  url: "https://patientq.ai",
-  urlLabel: "patientq.ai",
+  url: "https://patientq.io",
+  urlLabel: "patientq.io",
   kicker: "Plaud consultation companion · iOS & Android",
   logo: {
     src: "/projects/patientq-logo.png",
@@ -307,9 +509,9 @@ export const patientqMobile = {
     "Healthcare / HIPAA-aware mobile",
   ],
   roleIntro:
-    "Lead Mobile Developer — PatientQ (Plaud companion). Owned the iOS/Android app from architecture through App Store–ready native builds.",
+    "Built as a Software Engineer at Medaquire Inc. — the iOS/Android companion app, from architecture through App Store–ready native builds.",
   roleBullets: [
-    "Led development of PatientQ’s iOS/Android companion app (Expo/React Native) for Plaud hardware: BLE pairing, Wi-Fi fast transfer, and an offline-resilient sync queue.",
+    "Built PatientQ’s iOS/Android companion app (Expo/React Native) for Plaud hardware: BLE pairing, Wi-Fi fast transfer, and an offline-resilient sync queue.",
     "Implemented the end-to-end recording flow: device export → multipart cloud upload → AI transcription with diarization → in-app transcript player, search, and speaker labeling.",
     "Wrote a native Plaud SDK bridge (not Expo Go): scan, bind, handshake, file list, transfer progress, firmware, storage.",
     "Designed offline-first sync (AsyncStorage queue, exponential backoff, “Waiting for network”).",
@@ -319,12 +521,12 @@ export const patientqMobile = {
     "Shipped production native builds with Auth0, GraphQL, push notifications, and deep links; Bluetooth, Location, and Local Network permissions, Wi-Fi entitlements, TestFlight/EAS.",
   ],
   scope:
-    "I designed and built the PatientQ mobile app (Plaud integration) as lead developer — not the CRM, Smart Charting, or backend as a whole. Those are the system this phone talks to.",
+    "I designed and built the PatientQ mobile app (Plaud integration) — not the CRM, Smart Charting, or backend as a whole. Those are the system this phone talks to.",
 } as const;
 
 export const immigrateos = {
   name: "ImmigrateOS",
-  roleLine: "Founder & Builder",
+  roleLine: "Founder & Software Engineer",
   href: "/immigrateos",
   url: "https://immigrateos.com",
   urlLabel: "immigrateos.com",

@@ -136,10 +136,6 @@ export function PatientQ() {
       <h2 className="mt-16 font-mono text-xs tracking-[0.22em] text-patientq uppercase">
         Role
       </h2>
-      <p className="mt-3 max-w-2xl text-sm leading-6 text-muted">
-        Co-lead: product direction, architecture, and delivery — not sole
-        authorship of the monorepo.
-      </p>
       <ul className="mt-6 max-w-2xl space-y-4 text-base leading-7 text-muted">
         {patientq.roleBullets.map((item) => (
           <li key={item} className="pl-4 border-l border-line">

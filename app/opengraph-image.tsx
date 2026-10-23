@@ -51,7 +51,7 @@ export default function Image() {
               maxWidth: 760,
             }}
           >
-            {site.summary}
+            {site.specialty} · {site.location}
           </div>
         </div>
       </div>
